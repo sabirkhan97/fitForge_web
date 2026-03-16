@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import type { GenerateWorkoutBody } from '../types/workout';
@@ -321,7 +321,7 @@ function PillGroup({ options, selected, onSelect, multi = false, warn = false }:
   );
 }
 
-function GoalCard({ value, label, icon, selected, onClick }: {
+function GoalCard({ label, icon, selected, onClick }: {
   value: string; label: string; icon: string; selected: boolean; onClick: () => void;
 }) {
   return (

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+
 const MUSCLE_COLORS = {
   Chest: '#FF6B6B',
   'Upper Chest': '#FF8E53',
@@ -54,32 +55,32 @@ const STATS = [
 const MARQUEE_ITEMS = Object.keys(MUSCLE_COLORS);
 
 export default function Home() {
-  const featuresRef = useRef(null);
-  const musclesRef  = useRef(null);
-  const statsRef    = useRef(null);
-  const stepsRef    = useRef(null);
+  const featuresRef = useRef<HTMLDivElement | null>(null);
+  const musclesRef  = useRef<HTMLDivElement | null>(null);
+  const statsRef    = useRef<HTMLDivElement | null>(null);
+  const stepsRef    = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
           }
         });
       },
       { threshold: 0.12 }
     );
 
-    const targets = [
+      const targets: Element[] = [
       ...(featuresRef.current?.querySelectorAll('.feat-card') ?? []),
       ...(musclesRef.current?.querySelectorAll('.muscle-chip') ?? []),
       ...(statsRef.current?.querySelectorAll('.stat-card') ?? []),
       ...(stepsRef.current?.querySelectorAll('.step-item') ?? []),
-    ];
+    ] as Element[];
 
-    targets.forEach((el, i) => {
+    (targets as HTMLElement[]).forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = `opacity 0.5s ease ${i * 0.06}s, transform 0.5s ease ${i * 0.06}s`;
@@ -394,7 +395,7 @@ export default function Home() {
             <div key={name} className="muscle-chip" style={{ background:'#181818', border:'1px solid #272727', borderRadius:12, padding:'1.25rem' }}>
               <div style={{ width:10, height:10, borderRadius:'50%', background:color, marginBottom:'.75rem' }}/>
               <div style={{ fontSize:'.88rem', fontWeight:600 }}>{name}</div>
-              <div className="mono" style={{ fontSize:'.7rem', color:'#666', marginTop:'.2rem' }}>{EXERCISE_COUNTS[name]} exercises</div>
+              <div className="mono" style={{ fontSize:'.7rem', color:'#666', marginTop:'.2rem' }}>{(EXERCISE_COUNTS as any)[name]} exercises</div>
             </div>
           ))}
         </div>

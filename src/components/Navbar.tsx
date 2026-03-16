@@ -1,8 +1,8 @@
 "use client"
 
 import { Button } from '../components/ui/button';
-import { Menu, Dumbbell } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Dumbbell } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {

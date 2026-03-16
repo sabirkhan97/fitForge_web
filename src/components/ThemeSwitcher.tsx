@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../components/ui/dropdown-menu';
-import { Sun, Moon, Palette, Monitor, Laptop2, Smartphone } from 'lucide-react';
+import { Sun, Moon, Palette, Monitor } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const themes = [
