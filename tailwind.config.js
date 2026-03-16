@@ -4,37 +4,27 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
+theme: {
     extend: {
       colors: {
-        bg: {
-          DEFAULT: '#0E0E0E',
-        },
-card: {
-          DEFAULT: '#181818',
-          '2': '#1F1F1F',
-        },
-        card2: '#1F1F1F',
-        ink: '#FFFFFF',
-        muted: '#666666',
-        muted2: '#888888',
-        border: '#272727',
-        lime: {
-          DEFAULT: '#C8F135',
-        },
-        warn: '#FF6B6B',
+        background: 'rgb(var(--background) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground) / <alpha-value>)',
+        'bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
+        'bg-secondary': 'rgb(var(--bg-secondary) / <alpha-value>)',
+        'bg-card': 'rgb(var(--bg-card) / <alpha-value>)',
+        'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
+        'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        'accent-fg': 'rgb(var(--accent-fg) / <alpha-value>)',
+        lime: '#C8F135',
       },
       fontFamily: {
         sans: ['Geist', 'ui-sans-serif', 'system-ui'],
       },
-      spacing: {
-        '18': '4.5rem',
-      },
-      borderRadius: {
-        '18': '1.125rem',
-      }
     },
   },
+  darkMode: ['class', 'html[class~="dark"], html[class~="greenish"], html[class~="orangeish"]'],
   plugins: [],
   darkMode: 'class',
 }

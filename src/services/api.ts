@@ -1,7 +1,8 @@
 // Update hostname as needed - currently mobile local network
-const hostname = import.meta.env.VITE_API_HOST || '192.168.100.132';
-const API_BASE_URL = `http://${hostname}:3001`;
+const hostname = import.meta.env.VITE_API_HOST || '192.168.1.124';
+// const API_BASE_URL = `http://${hostname}:3001`;
 
+const API_BASE_URL = "https://fit-forge-backend.vercel.app/api"
 import type { Workout, GenerateWorkoutBody } from '../types/workout';
 
 const api = {
@@ -11,7 +12,9 @@ const api = {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      // body: JSON.stringify(body),
+          body: JSON.stringify(body)
+
     });
 
     if (!response.ok) {
